@@ -211,7 +211,7 @@ char *relocatep(const char *path)
     return strsave(path);
   char *relative_path = (char *)path + INSTALLPATHLEN;
   size_t relative_path_len = strlen(relative_path);
-  char *relocated_path = new char[curr_prefix_len + relative_path_len + 1];
+  char *relocated_path = (char *)malloc(curr_prefix_len + relative_path_len + 1);
   strcpy(relocated_path, curr_prefix);
   strcat(relocated_path, relative_path);
 #if DEBUG
